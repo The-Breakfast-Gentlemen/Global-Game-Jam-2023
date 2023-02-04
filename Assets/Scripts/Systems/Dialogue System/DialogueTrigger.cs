@@ -6,10 +6,11 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Message[] messages;
     public Actor[] actors;
+    public Conversation[] conversations;
 
     public void StartDialogue()
     {
-        FindObjectOfType<DialogueManager>().OpenDialogue(messages, actors);
+        FindObjectOfType<DialogueManager>().OpenDialogue(conversations);
     }
 }
 
@@ -26,4 +27,11 @@ public class Actor
 {
     public string name;
     public Sprite sprite;
+}
+
+[System.Serializable]
+public class Conversation
+{
+    public Message[] c_messages;
+    public Actor[] c_actors;
 }
