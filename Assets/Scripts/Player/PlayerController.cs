@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     private float DamageAfterTime;
 
     [SerializeField]
+    private float StrongDamageAfterTime;
+
+    [SerializeField]
     private int Damage;
 
     [SerializeField]
@@ -34,10 +37,7 @@ public class PlayerController : MonoBehaviour
     {
        MovePlayer(); 
 
-       if(Mouse.current.leftButton.wasPressedThisFrame)
-       {
-           
-       }
+
     }
 
     public void OnMove(InputAction.CallbackContext context) 
@@ -60,7 +60,15 @@ public class PlayerController : MonoBehaviour
     public void OnAttack(InputValue value)
     {
         _animator.SetTrigger("Attack");
-        //StartCoroutine(Hit(false));
+        StartCoroutine(Hit(false));
     }
 
+    private IEnumerator Hit(bool strong)
+    {
+        yield return new WaitForSeconds(strong ? StrongDamageAfterTime : DamageAfterTime);
+        foreach(var attackAreaDamageable in _attackArea.Damageables)
+        {
+            attackAreaDamageable.Damage(Damage * (strong ? 3 : 1));
+        }
+    }
 }
