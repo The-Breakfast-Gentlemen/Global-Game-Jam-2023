@@ -19,9 +19,8 @@ public class PlayerController : MonoBehaviour
     private float StrongDamageAfterTime;
 
     [SerializeField]
-    private int Damage;
+    private int Damage = 1;
 
-    [SerializeField]
     private AttackArea _attackArea;
 
     public Enemy enemy;
@@ -36,8 +35,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
        MovePlayer(); 
-
-
     }
 
     public void OnMove(InputAction.CallbackContext context) 
@@ -55,12 +52,19 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+        _attackArea = GetComponentInChildren<AttackArea>();
     }
 
-    public void OnAttack(InputValue value)
+    public void OnAttack(InputAction.CallbackContext value)
     {
-        _animator.SetTrigger("Attack");
-        StartCoroutine(Hit(false));
+        if(value.started)
+        {
+            Debug.Log("ATTACK");
+            //_animator.SetTrigger("Attack");
+
+            StartCoroutine(Hit(false));
+        }
+
     }
 
     private IEnumerator Hit(bool strong)
