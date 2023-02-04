@@ -94,8 +94,8 @@
                 {
                     "name": "",
                     "id": "6c0b85f9-3506-4503-9509-dbcbc5653401",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
