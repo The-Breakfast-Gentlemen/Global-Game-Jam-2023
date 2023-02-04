@@ -18,7 +18,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       MovePlayer(); 
+        if(DialogueManager.isActive)
+            return;
+        
+         MovePlayer(); 
     }
 
     public void OnMove(InputAction.CallbackContext context) 
