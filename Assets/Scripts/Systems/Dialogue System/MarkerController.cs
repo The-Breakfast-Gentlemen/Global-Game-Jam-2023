@@ -5,18 +5,20 @@ using UnityEngine;
 public class MarkerController : MonoBehaviour
 {
     private DialogueTrigger dialogueTrigger;
+	private MeshRenderer meshRenderer;
     // Start is called before the first frame update
     void Start()
     {
         dialogueTrigger = gameObject.GetComponentInParent<DialogueTrigger>();
+		meshRenderer = gameObject.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
 	{
 		if(dialogueTrigger.isUnlocked)
-			gameObject.SetActive(true);
+			meshRenderer.enabled = true;
 		else
-			gameObject.SetActive(false);
+			meshRenderer.enabled = false;
 	}
 }
