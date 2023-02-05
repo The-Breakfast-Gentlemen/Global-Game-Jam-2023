@@ -320,10 +320,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 2000
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -795,7 +795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531841409289926550, guid: 70664732b0051db40ab557edb00927c2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 140
+      value: 225.1382
       objectReference: {fileID: 0}
     - target: {fileID: 5531841409289926550, guid: 70664732b0051db40ab557edb00927c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -831,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531841409289926550, guid: 70664732b0051db40ab557edb00927c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 96
+      value: 138.56909
       objectReference: {fileID: 0}
     - target: {fileID: 5531841409289926550, guid: 70664732b0051db40ab557edb00927c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1073,10 +1073,10 @@ MonoBehaviour:
   conversations:
   - c_messages:
     - actorId: 0
-      message: AGH
+      message: Hey! What's up?
     c_actors:
-    - name: NPC
-      sprite: {fileID: 21300000, guid: e5600378dd761e64d9423790c482bf36, type: 3}
+    - name: Drummer
+      sprite: {fileID: 21300000, guid: 7336026dfdecf874c9e462eb4a0ce288, type: 3}
 --- !u!114 &1689553878
 MonoBehaviour:
   m_ObjectHideFlags: 0
