@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Mainmenu : MonoBehaviour
-{
+public class Mainmenu : MonoBehaviour {
+
     public void PlayGame ()
     {
-        SceneManager.LoadScene("Schoolyard")
+        SceneManager.LoadScene("Schoolyard Scene");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("QUIT!");
+        Application.Quit();
     }
 
 
