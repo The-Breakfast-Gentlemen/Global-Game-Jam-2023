@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float dmg;
+    float timer = 0;
+
+    bool aBlaze = true;
+    public int fireTime = 3;
+
     private Vector2 _move;
 
     private Animator _animator;
@@ -77,6 +82,13 @@ public class PlayerController : MonoBehaviour
         foreach(var attackAreaDamageable in _attackArea.Damageables)
         {
             attackAreaDamageable.Damage(Damage * (strong ? 3 : 1));
+            if(aBlaze == true)
+            {
+                for(int i = 0; i < fireTime; i++)
+                {
+                    attackAreaDamageable.Damage(Damage);
+                }
+            }
         }
     }
 }
