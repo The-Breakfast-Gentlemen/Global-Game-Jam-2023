@@ -22,10 +22,12 @@ public class Bullet : MonoBehaviour
         {
             target = GameObject.FindWithTag("Enemy");
         }
-        Vector3 direction = (Vector3)(target.transform.position- transform.position).normalized;
-        //direction.Normalize();
-        rb.velocity = direction * speed;
-
+        if(target != null)
+        {
+            Vector3 direction = (Vector3)(target.transform.position- transform.position).normalized;
+            //direction.Normalize();
+            rb.velocity = direction * speed;
+        }
 
     }
 

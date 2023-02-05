@@ -10,18 +10,20 @@ public class Shooting : MonoBehaviour
 
     float timer;
     int waitingTime = 5;
+    private GameObject target;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
+        target = GameObject.FindWithTag("Enemy");
 
-        if(timer > waitingTime)
+        if(timer > waitingTime && target != null)
         {
             Shoot();
             timer = 0;
