@@ -1,5 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Scenes/Schoolyard Scene.unity.meta
+guid: 38fd501fc08e3b34cb0be2dfa8b05c9c
+========
+guid: 14c4bf13e80f8e14195ae92a85026464
+folderAsset: yes
+>>>>>>>> 9f8571884f0cbf10a4796b3af42453423b001eda:Assets/Art/Sprites/School.meta
+=======
 guid: ab281378eb33cf5459542f69662de945
+>>>>>>> 9f8571884f0cbf10a4796b3af42453423b001eda
 DefaultImporter:
   externalObjects: {}
   userData: 

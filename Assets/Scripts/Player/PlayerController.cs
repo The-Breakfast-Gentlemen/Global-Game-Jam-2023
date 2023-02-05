@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPlayerDamage
 {
 
     public float speed;
@@ -15,8 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float DamageAfterTime = 0.3f;
 
-    [SerializeField]
-    private float StrongDamageAfterTime;
+
 
     [SerializeField]
     private int Damage = 1;
@@ -71,12 +70,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void PlayerDamage(int damage)
+    {
+        Debug.Log("The player has taken damage");
+    }
+
     private IEnumerator Hit(bool strong)
     {
-        yield return new WaitForSeconds(strong ? StrongDamageAfterTime : DamageAfterTime);
+        yield return new WaitForSeconds(DamageAfterTime);
         foreach(var attackAreaDamageable in _attackArea.Damageables)
         {
-            attackAreaDamageable.Damage(Damage * (strong ? 3 : 1));
+            attackAreaDamageable.Damage(Damage * (strong ? 2 : 1));
         }
     }
 }
+
+
