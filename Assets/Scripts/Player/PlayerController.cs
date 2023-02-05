@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
     [SerializeField]
     private float DamageAfterTime = 0f;
 
-    public int playerHealth = 10;
+    public float playerHealth = 10.0f;
+    public HealthBarHandler healthBar;
 
 
 
@@ -91,17 +92,22 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     public void OnActiveAbility(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if(value.started && playerHealth < 7)
         {
             Debug.Log("Active Ability");
             playerHealth += 3;
+            healthBar.SetHealthBarValue(playerHealth/10);
             hasLily = false;
+
         }
     }
 
     public void PlayerDamage(int damage)
     {
-        Debug.Log("The player has taken damage");
+        playerHealth--;
+
+        Debug.Log("The player has taken damage " + playerHealth/10);
+        healthBar.SetHealthBarValue(playerHealth/10);
     }
 
     private IEnumerator Hit(bool strong)

@@ -3,13 +3,20 @@ using UnityEngine.UI;
 
 public class HealthBarHandler : MonoBehaviour
 {
-    private static Image HealthBarImage;
-
+    private Image HealthBarImage;
+    
+    /// <summary>
+    /// Initialize the variable
+    /// </summary>
+    private void Start()
+    {
+        HealthBarImage = GetComponentInChildren<Image>();
+    }
     /// <summary>
     /// Sets the health bar value
     /// </summary>
     /// <param name="value">should be between 0 to 1</param>
-    public static void SetHealthBarValue(float value)
+    public void SetHealthBarValue(float value)
     {
         HealthBarImage.fillAmount = value;
         if (HealthBarImage.fillAmount < 0.2f)
@@ -26,7 +33,7 @@ public class HealthBarHandler : MonoBehaviour
         }
     }
 
-    public static float GetHealthBarValue()
+    public float GetHealthBarValue()
     {
         return HealthBarImage.fillAmount;
     }
@@ -35,16 +42,10 @@ public class HealthBarHandler : MonoBehaviour
     /// Sets the health bar color
     /// </summary>
     /// <param name="healthColor">Color </param>
-    public static void SetHealthBarColor(Color healthColor)
+    public void SetHealthBarColor(Color healthColor)
     {
         HealthBarImage.color = healthColor;
     }
 
-    /// <summary>
-    /// Initialize the variable
-    /// </summary>
-    private void Start()
-    {
-        HealthBarImage = GetComponent<Image>();
-    }
+
 }

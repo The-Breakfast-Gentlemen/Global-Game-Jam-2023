@@ -7,6 +7,8 @@ TagManager:
   - StudentBoss
   - StudentWeapon
   - Enemy
+  - Drone
+  - HealthBarImage
   layers:
   - Default
   - TransparentFX
