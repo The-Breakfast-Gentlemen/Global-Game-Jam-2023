@@ -87,6 +87,14 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     }
 
+    public void OnActiveAbility(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            Debug.Log("Active Ability");
+        }
+    }
+
     public void PlayerDamage(int damage)
     {
         Debug.Log("The player has taken damage");
