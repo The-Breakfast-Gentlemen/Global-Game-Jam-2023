@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPlayerDamage
 {
 
     public float speed;
@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Hit(false));
         }
 
+    }
+
+    public void PlayerDamage(int damage)
+    {
+        Debug.Log("The player has taken damage");
     }
 
     private IEnumerator Hit(bool strong)
