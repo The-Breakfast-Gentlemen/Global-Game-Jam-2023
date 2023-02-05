@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     public float speed;
     public float dmg;
+    float timer = 0;
+
+    bool aBlaze = true;
+    public int fireTime = 3;
+
     private Vector2 _move;
 
     private Animator _animator;
@@ -80,7 +85,18 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         yield return new WaitForSeconds(DamageAfterTime);
         foreach(var attackAreaDamageable in _attackArea.Damageables)
         {
+<<<<<<< HEAD
+            attackAreaDamageable.Damage(Damage * (strong ? 3 : 1));
+            if(aBlaze == true)
+            {
+                for(int i = 0; i < fireTime; i++)
+                {
+                    attackAreaDamageable.Damage(Damage);
+                }
+            }
+=======
             attackAreaDamageable.Damage(Damage * (strong ? 2 : 1));
+>>>>>>> 69ad135909329c6cf6430685507759377c7c4d47
         }
     }
 }
