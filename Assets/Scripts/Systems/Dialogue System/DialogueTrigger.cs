@@ -7,16 +7,25 @@ public class DialogueTrigger : MonoBehaviour
     public Message[] messages;
     public Actor[] actors;
     public Conversation[] conversations;
-
     public int activeConversation = 0;
+    public GameObject unlockItem;
+
+    public bool isUnlocked = true;
 
     public void StartDialogue()
     {
+        if(!isUnlocked)
+            return;
+
         if(activeConversation >= conversations.Length)
             activeConversation = conversations.Length - 1;
 
         FindObjectOfType<DialogueManager>().OpenDialogue(conversations, activeConversation);
+        if(activeConversation == 0)
+            isUnlocked = false;
+
         activeConversation++;
+        
     }
 }
 
