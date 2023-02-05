@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
     
-        
+
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponentInChildren<Animator>();
+        _animator = GetComponent<Animator>();
         _attackArea = GetComponentInChildren<AttackArea>();
     }
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         if(value.started)
         {
             Debug.Log("ATTACK");
-            //_animator.SetTrigger("Attack");
+            _animator.SetTrigger("Attack");
 
             StartCoroutine(Hit(false));
         }
