@@ -6,9 +6,9 @@ public class NPCController : MonoBehaviour
 {
     public DialogueTrigger trigger;
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player"))
             trigger.StartDialogue();
     }
 }
