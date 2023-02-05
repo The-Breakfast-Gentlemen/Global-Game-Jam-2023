@@ -15,8 +15,7 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
     [SerializeField]
     private float DamageAfterTime = 0.3f;
 
-    [SerializeField]
-    private float StrongDamageAfterTime;
+
 
     [SerializeField]
     private int Damage = 1;
@@ -78,10 +77,12 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     private IEnumerator Hit(bool strong)
     {
-        yield return new WaitForSeconds(strong ? StrongDamageAfterTime : DamageAfterTime);
+        yield return new WaitForSeconds(DamageAfterTime);
         foreach(var attackAreaDamageable in _attackArea.Damageables)
         {
-            attackAreaDamageable.Damage(Damage * (strong ? 3 : 1));
+            attackAreaDamageable.Damage(Damage * (strong ? 2 : 1));
         }
     }
 }
+
+
