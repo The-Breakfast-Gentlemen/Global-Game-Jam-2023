@@ -36,8 +36,10 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     private AttackArea _attackArea;
     public GameObject drone;
+    public Transform respawnPoint;
 
     public Enemy enemy;
+    public GameObject enemyWeapon;
 
     // Update is called once per frame
     void Update()
@@ -49,6 +51,12 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         {
             drone.SetActive(true);
         }
+
+        if(playerHealth <= 0)
+        {
+            PlayerDeath();
+        }
+
        MovePlayer(); 
     }
 
@@ -108,6 +116,14 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
         Debug.Log("The player has taken damage " + playerHealth/10);
         healthBar.SetHealthBarValue(playerHealth/10);
+    }
+
+    public void PlayerDeath()
+    {
+        enemy.gameObject.SetActive(false);
+        enemyWeapon.SetActive(false);
+        playerHealth = 10;
+        transform.position = respawnPoint.position;
     }
 
     private IEnumerator Hit(bool strong)
