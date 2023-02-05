@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StudentBoss
   - StudentWeapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
