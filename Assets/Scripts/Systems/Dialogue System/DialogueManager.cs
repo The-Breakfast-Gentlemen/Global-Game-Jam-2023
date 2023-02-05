@@ -15,11 +15,10 @@ public class DialogueManager : MonoBehaviour
     Message[] currentMessages;
     Actor[] currentActors;
     
-    int activeConversation = 0;
     int activeMessage = 0;
     public static bool isActive = false;
 
-    public void OpenDialogue(Conversation[] conversations)
+    public void OpenDialogue(Conversation[] conversations, int activeConversation)
     {
         currentConversations = conversations;
         currentMessages = currentConversations[activeConversation].c_messages;
@@ -50,7 +49,6 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Debug.Log("Conversation ended");
-            activeConversation++; // DEPRECATE THIS TO USE CUSTOM activeConversation INDEX LATER
             
             isActive = false;
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();

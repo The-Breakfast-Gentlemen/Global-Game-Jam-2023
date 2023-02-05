@@ -8,9 +8,15 @@ public class DialogueTrigger : MonoBehaviour
     public Actor[] actors;
     public Conversation[] conversations;
 
+    public int activeConversation = 0;
+
     public void StartDialogue()
     {
-        FindObjectOfType<DialogueManager>().OpenDialogue(conversations);
+        if(activeConversation >= conversations.Length)
+            activeConversation = conversations.Length - 1;
+
+        FindObjectOfType<DialogueManager>().OpenDialogue(conversations, activeConversation);
+        activeConversation++;
     }
 }
 
@@ -34,4 +40,5 @@ public class Conversation
 {
     public Message[] c_messages;
     public Actor[] c_actors;
+
 }

@@ -9,5 +9,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public void Damage(int damageAmount)
     {
         Debug.Log("OW BITCH!");
+        health--;
     }
 }
