@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
     [SerializeField]
     private float DamageAfterTime = 0f;
 
+    public int playerHealth = 10;
+
 
 
     [SerializeField]
@@ -92,6 +94,8 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         if(value.started)
         {
             Debug.Log("Active Ability");
+            playerHealth += 3;
+            hasLily = false;
         }
     }
 
