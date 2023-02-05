@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
 
     [SerializeField]
-    private float DamageAfterTime;
+    private float DamageAfterTime = 0.3f;
 
     [SerializeField]
     private float StrongDamageAfterTime;
