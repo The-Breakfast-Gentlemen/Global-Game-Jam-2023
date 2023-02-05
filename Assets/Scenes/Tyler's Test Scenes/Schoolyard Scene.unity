@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 339265377}
   - component: {fileID: 339265376}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -831,7 +831,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 339265377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 508419593}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: OptionsMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &339265377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,7 +899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &349289570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3007,7 +3019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 907824204}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 508419593}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &907824204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6899,7 +6923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7395,7 +7419,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1971766687}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 508419593}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1971766687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7675,9 +7711,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   dmg: 0
+  hasRingler: 0
   fireTime: 3
+  hasSue: 0
+  hasLily: 0
+  hasRockim: 0
   DamageAfterTime: 0
+  playerHealth: 10
+  healthBar: {fileID: 0}
   Damage: 0
+  drone: {fileID: 0}
   enemy: {fileID: 0}
 --- !u!114 &2047513212
 MonoBehaviour:
