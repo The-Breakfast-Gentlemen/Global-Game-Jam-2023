@@ -7,6 +7,12 @@ public class AttackArea : MonoBehaviour
     private List<IDamageable> _damageablesInRange;
 
     public List<IDamageable> Damageables { get; } = new();
+    public Transform player;
+
+    void Update()
+    {
+        transform.position = new Vector3(player.position.x + 1.2f, player.position.y, player.position.z);
+    }
 
     public void OnTriggerEnter(Collider other)
     {

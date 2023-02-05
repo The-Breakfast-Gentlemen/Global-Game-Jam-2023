@@ -8,17 +8,23 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     public float speed;
     public float dmg;
-    float timer = 0;
+    //float timer = 0;
 
-    bool aBlaze = true;
+    public bool hasRingler = false;
     public int fireTime = 3;
+
+    public bool hasSue = false;
+
+    public bool hasLily = false;
+
+    public bool hasRockim = false;
 
     private Vector2 _move;
 
     private Animator _animator;
 
     [SerializeField]
-    private float DamageAfterTime = 0.3f;
+    private float DamageAfterTime = 0f;
 
 
 
@@ -26,14 +32,9 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
     private int Damage = 1;
 
     private AttackArea _attackArea;
+    public GameObject drone;
 
     public Enemy enemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,7 +42,10 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         if(DialogueManager.isActive)
             return;
         
-
+        if(hasSue)
+        {
+            drone.SetActive(true);
+        }
        MovePlayer(); 
     }
 
@@ -70,7 +74,15 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
             Debug.Log("ATTACK");
             _animator.SetTrigger("Attack");
 
-            StartCoroutine(Hit(false));
+            if(hasRockim)
+            {
+                if(Random.Range(1, 100) < 30) // 30% chance
+                {
+                    StartCoroutine(Hit(true));
+                }
+            }
+            else
+                StartCoroutine(Hit(false));
         }
 
     }
@@ -85,18 +97,16 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         yield return new WaitForSeconds(DamageAfterTime);
         foreach(var attackAreaDamageable in _attackArea.Damageables)
         {
-<<<<<<< HEAD
-            attackAreaDamageable.Damage(Damage * (strong ? 3 : 1));
-            if(aBlaze == true)
+            attackAreaDamageable.Damage(Damage * (strong ? 2 : 1));
+            if(hasRingler)
             {
                 for(int i = 0; i < fireTime; i++)
                 {
+                    Debug.Log("BURN");
                     attackAreaDamageable.Damage(Damage);
+                    yield return new WaitForSeconds(1);
                 }
             }
-=======
-            attackAreaDamageable.Damage(Damage * (strong ? 2 : 1));
->>>>>>> 69ad135909329c6cf6430685507759377c7c4d47
         }
     }
 }

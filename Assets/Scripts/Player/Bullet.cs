@@ -29,10 +29,17 @@ public class Bullet : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.CompareTag("Enemy"))
+        if(other.CompareTag("Enemy"))
         {
+            var damageable = other.GetComponent<IDamageable>();
+            if(damageable != null)
+            {
+                Debug.Log("DRONE SHOT");
+                damageable.Damage(1);
+            }
+
             Destroy(gameObject);
         }
     }    
