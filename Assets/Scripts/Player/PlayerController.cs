@@ -98,11 +98,8 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         foreach(var attackAreaDamageable in _attackArea.Damageables)
         {
             attackAreaDamageable.Damage(Damage * (strong ? 2 : 1));
-<<<<<<< HEAD
+
             if(hasRingler)
-=======
-            if(aBlaze == true)
->>>>>>> a3dd58804f0e15dcd8eb584fa950b94761edd723
             {
                 for(int i = 0; i < fireTime; i++)
                 {

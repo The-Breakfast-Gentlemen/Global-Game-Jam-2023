@@ -41,13 +41,8 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetResolution(int resolutionIndex)
     {
-<<<<<<< HEAD
-        //resolutionDropdown resolution = resolutions[resolutionIndex];
-        //Screen.SetResolution(resolution.width, resolution.height, Screen.fullscreen);
-=======
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
->>>>>>> a3dd58804f0e15dcd8eb584fa950b94761edd723
     }
     public void SetVolume (float volume)
     {
