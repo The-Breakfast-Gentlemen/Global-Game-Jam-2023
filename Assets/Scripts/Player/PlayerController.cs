@@ -8,17 +8,25 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     public float speed;
     public float dmg;
-    float timer = 0;
+    //float timer = 0;
 
-    bool aBlaze = true;
+    public bool hasRingler = false;
     public int fireTime = 3;
+
+    public bool hasSue = false;
+
+    public bool hasLily = false;
+
+    public bool hasRockim = false;
 
     private Vector2 _move;
 
     private Animator _animator;
 
     [SerializeField]
-    private float DamageAfterTime = 0.3f;
+    private float DamageAfterTime = 0f;
+
+    public int playerHealth = 10;
 
 
 
@@ -26,14 +34,9 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
     private int Damage = 1;
 
     private AttackArea _attackArea;
+    public GameObject drone;
 
     public Enemy enemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,7 +44,10 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         if(DialogueManager.isActive)
             return;
         
-
+        if(hasSue)
+        {
+            drone.SetActive(true);
+        }
        MovePlayer(); 
     }
 
@@ -70,9 +76,27 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
             Debug.Log("ATTACK");
             _animator.SetTrigger("Attack");
 
-            StartCoroutine(Hit(false));
+            if(hasRockim)
+            {
+                if(Random.Range(1, 100) < 30) // 30% chance
+                {
+                    StartCoroutine(Hit(true));
+                }
+            }
+            else
+                StartCoroutine(Hit(false));
         }
 
+    }
+
+    public void OnActiveAbility(InputAction.CallbackContext value)
+    {
+        if(value.started)
+        {
+            Debug.Log("Active Ability");
+            playerHealth += 3;
+            hasLily = false;
+        }
     }
 
     public void PlayerDamage(int damage)
@@ -86,11 +110,14 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         foreach(var attackAreaDamageable in _attackArea.Damageables)
         {
             attackAreaDamageable.Damage(Damage * (strong ? 2 : 1));
-            if(aBlaze == true)
+
+            if(hasRingler)
             {
                 for(int i = 0; i < fireTime; i++)
                 {
+                    Debug.Log("BURN");
                     attackAreaDamageable.Damage(Damage);
+                    yield return new WaitForSeconds(1);
                 }
             }
         }

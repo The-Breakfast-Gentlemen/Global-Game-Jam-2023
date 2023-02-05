@@ -36,22 +36,22 @@ public class StudentAttackController : MonoBehaviour
         if(playerDamageable != null)
         {
 
-            Debug.Log(playerDamageable);
+            //Debug.Log(playerDamageable);
             PlayerDamageables.Add(playerDamageable);
         }
 
         if(other.CompareTag("Player"))
         {
             int rand = Random.Range(1, 100);
-            Debug.Log(rand);
+            //Debug.Log(rand);
             if(rand < 70)
             {
-                Debug.Log("BOSS ATTACK");
+                //Debug.Log("BOSS ATTACK");
                 StartCoroutine(Attack());
             }
             else
             {
-                Debug.Log("CLOCKWORK");
+                //Debug.Log("CLOCKWORK");
                 StartCoroutine(Clockwork());
             }
         }
@@ -69,14 +69,14 @@ public class StudentAttackController : MonoBehaviour
     private IEnumerator Attack()
     {
         agent.isStopped = true;
-        Debug.Log("Attack Started");
+        //Debug.Log("Attack Started");
 
         // Enable exclamation to warn of attack, enable weapon
         yield return new WaitForSeconds(1);
         // Perform attack animation
         _animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.3f);
-        Debug.Log("Attack Ended");
+        //Debug.Log("Attack Ended");
         // Disable exclamation and weapon
         agent.isStopped = false;
     }
@@ -84,14 +84,14 @@ public class StudentAttackController : MonoBehaviour
     private IEnumerator Clockwork()
     {
         agent.isStopped = true;
-        Debug.Log("Clockwork Started");
+        //Debug.Log("Clockwork Started");
 
         // Enable exclamation to warn of attack, enable weapon
         yield return new WaitForSeconds(1);
         // Perform attack animation
         _animator.SetTrigger("Clockwork");
         yield return new WaitForSeconds(0.3f);
-        Debug.Log("Clockwork Ended");
+        //Debug.Log("Clockwork Ended");
         // Disable exclamation and weapon
         agent.isStopped = false;
     }

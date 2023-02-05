@@ -22,17 +22,26 @@ public class Bullet : MonoBehaviour
         {
             target = GameObject.FindWithTag("Enemy");
         }
-        Vector3 direction = (Vector3)(target.transform.position- transform.position).normalized;
-        //direction.Normalize();
-        rb.velocity = direction * speed;
-
+        if(target != null)
+        {
+            Vector3 direction = (Vector3)(target.transform.position- transform.position).normalized;
+            //direction.Normalize();
+            rb.velocity = direction * speed;
+        }
 
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.CompareTag("Enemy"))
+        if(other.CompareTag("Enemy"))
         {
+            var damageable = other.GetComponent<IDamageable>();
+            if(damageable != null)
+            {
+                Debug.Log("DRONE SHOT");
+                damageable.Damage(1);
+            }
+
             Destroy(gameObject);
         }
     }    
