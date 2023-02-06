@@ -7,7 +7,7 @@ public class Mainmenu : MonoBehaviour {
 
     public void PlayGame ()
     {
-        SceneManager.LoadScene("Schoolyard Scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
