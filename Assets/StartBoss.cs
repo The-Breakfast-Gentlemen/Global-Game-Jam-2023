@@ -7,6 +7,9 @@ public class StartBoss : MonoBehaviour
     public GameObject boss;
     public GameObject weapon;
     public GameObject door;
+    public AudioSource music;
+    public AudioClip bossClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,12 @@ public class StartBoss : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            music.clip = bossClip;
+            music.Play();
             boss.SetActive(true);
             weapon.SetActive(true);
             door.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

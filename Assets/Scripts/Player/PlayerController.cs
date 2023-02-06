@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
     public Enemy enemy;
     public GameObject enemyWeapon;
     public GameObject arenaDoor;
+    public AudioSource music;
+    public AudioClip overworldClip;
+    public GameObject bossTrigger;
 
     // Update is called once per frame
     void Update()
@@ -52,6 +55,9 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         {
             drone.SetActive(true);
         }
+
+        if(transform.position.y < -30)
+            PlayerDeath();
 
         if(playerHealth <= 0)
         {
@@ -136,8 +142,11 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         enemy.gameObject.SetActive(false);
         enemyWeapon.SetActive(false);
         arenaDoor.SetActive(false);
+        bossTrigger.SetActive(true);
         playerHealth = 10;
         transform.position = respawnPoint.position;
+        music.clip = overworldClip;
+        music.Play();
     }
 
     private IEnumerator Hit(bool strong)
