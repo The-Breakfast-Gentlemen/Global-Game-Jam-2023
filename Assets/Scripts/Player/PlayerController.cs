@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
 
     public Enemy enemy;
     public GameObject enemyWeapon;
+    public GameObject arenaDoor;
 
     // Update is called once per frame
     void Update()
@@ -70,6 +71,18 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
         Vector3 movement = new Vector3(_move.x, 0f, _move.y);
 
         transform.Translate(movement * speed * Time.deltaTime, Space.World);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Sue"))
+            hasSue = true;
+        else if(other.CompareTag("Rockim"))
+            hasRockim = true;
+        else if(other.CompareTag("Lily"))
+            hasLily = true;
+        else if(other.CompareTag("Ringler"))
+            hasRingler = true;
     }
 
     private void Awake()
@@ -122,6 +135,7 @@ public class PlayerController : MonoBehaviour, IPlayerDamage
     {
         enemy.gameObject.SetActive(false);
         enemyWeapon.SetActive(false);
+        arenaDoor.SetActive(false);
         playerHealth = 10;
         transform.position = respawnPoint.position;
     }

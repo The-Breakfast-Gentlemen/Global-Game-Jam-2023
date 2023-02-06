@@ -9,6 +9,10 @@ TagManager:
   - Enemy
   - Drone
   - HealthBarImage
+  - Sue
+  - Rockim
+  - Ringler
+  - Lily
   layers:
   - Default
   - TransparentFX

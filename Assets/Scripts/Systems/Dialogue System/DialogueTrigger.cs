@@ -25,6 +25,10 @@ public class DialogueTrigger : MonoBehaviour
             isUnlocked = false;
 
         activeConversation++;
+        if(activeConversation == 1)
+        {
+            unlockItem.SetActive(true);
+        }
         
     }
 }
