@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Gabe's Epic Folder/Menu.unity
     guid: 363f2095803a8fb48a5cc9e354d88b5b
   - enabled: 1
-    path: Assets/Scenes/Cole's Test Scenes/SampleScene 1.unity
-    guid: ab281378eb33cf5459542f69662de945
-  - enabled: 1
     path: Assets/Scenes/Tyler's Test Scenes/Schoolyard Scene.unity
     guid: 38fd501fc08e3b34cb0be2dfa8b05c9c
+  - enabled: 1
+    path: Assets/Scenes/Cole's Test Scenes/SampleScene 1.unity
+    guid: ab281378eb33cf5459542f69662de945
   m_configObjects: {}
